@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2024 by anonymous (http://jsbin.com/mokulubumi/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+#blah{
+  background-image: url(https://svgshare.com/i/1AtB.svg);
+  width: 500px;
+  height: 250px;
+
+}
+.p1, .p2 {
+  position: absolute;
+  color: white;
+  font-size:30px
+}
+.p1{
+  left: 370px;
+  top: 108px;
+}
+.p2{
+  left: 120px;
+  top: 108px;
+}
+</style>
+</head>
+<body>
+<div id="blah"></div>
+<script id="jsbin-javascript">
+
+var blah = document.getElementById("blah");
+
+/* var mapping = ["A","B","X","Y","LB","RB","LT","RT","BACK","START","LS","RS","D-UP","D-DOWN","D-LEFT","D-RIGHT"]; */
+
+var mapping = [];
+
+const rez = 110;
+
+function runAnimation()
+{
+    window.requestAnimationFrame(runAnimation);
+
+    var gamepads = navigator.getGamepads();
+
+    for (var i = 0; i < gamepads.length; ++i)
+    {
+        var pad = gamepads[i];
+        if (pad)
+        {
+/*             blah.innerHTML = "<p>BUTTONS</p>";
+            for (var j = 0; j < pad.buttons.length; ++j)
+            {
+                var cl = pad.buttons[j].pressed ? "selected" : "normal";
+                blah.innerHTML +=  "<font class='"+cl+"'>"+mapping[j]+"</font>";
+                if (j % 8 == 7)
+                    blah.innerHTML += "<br>";
+            } */
+            blah.innerHTML = "";
+/*             for (var j = 0; j < pad.axes.length; ++j)
+            {
+                blah.innerHTML += Math.round(pad.axes[j] * 100)/100 + "<br>";
+            } */
+            blah.innerHTML += "<div class='p1' style='margin-left:"+ (pad.axes[0]*rez) +"px; margin-top: "+(-1*pad.axes[1]*rez)+"px'>➋</div>";
+            blah.innerHTML += "<div class='p2' style='margin-left:"+ (pad.axes[3]*rez) +"px; margin-top: "+(-1*pad.axes[2]*rez)+"px'>➊</div>";
+        }
+            // todo; simple demo of displaying pad.axes and pad.buttons
+    }
+}
+
+window.requestAnimationFrame(runAnimation);
+
+/* runAnimation(); */
+</script>
+</body>
+</html>
