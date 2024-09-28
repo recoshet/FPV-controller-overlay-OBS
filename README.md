@@ -12,7 +12,7 @@
 
 2. Добавьте источник браузер и укажите локальный файл index.html 
    
-   ![OBS vonfig.png](img\OBSconfig.png)
+   ![OBS vonfig.png](https://github.com/recoshet/FPV-controller-overlay-OBS/blob/main/img/OBSconfig.png?raw=true)
 
 Настройте ширину `520` и высоту `270`. Для оптимизации можете ограничить FPS (тестировал на встроенной видюхе). 
 
